@@ -4,13 +4,13 @@ import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+    path: '',
+    redirectTo: 'seleccion',
+    pathMatch: 'full',
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    path: 'login-maestro',
+    loadChildren: () => import('./login-maestro/login-maestro.module').then((m) => m.LoginMaestroPageModule),
   },
   {
     path: 'login',
@@ -32,7 +32,8 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then((m) => m.ForgotPasswordPageModule),
-  },  {
+  },
+  {
     path: 'seleccion',
     loadChildren: () => import('./seleccion/seleccion.module').then( m => m.SeleccionPageModule)
   },
