@@ -1,5 +1,5 @@
 import { AuthService } from './../services/auth.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   constructor(private authSvc: AuthService, private router: Router) {}
-
+ ngOnInit() {}
+ 
   async onLogin(email, password) {
     try {
       const user = await this.authSvc.login(email.value, password.value);
       if (user) {
         const isVerified = this.authSvc.isEmailVerified(user);
+        console.log('verified->',isVerified);
         this.redirectUser(isVerified);
       }
     } catch (error) {

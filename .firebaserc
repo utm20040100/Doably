@@ -1,9 +1,9 @@
 {
   "targets": {
-    "login-ng-b97ae": {
+    "doably-3089f": {
       "hosting": {
         "app": [
-          "login-ng-b97ae"
+          "doably-3089f"
         ]
       }
     }
