@@ -8,31 +8,11 @@
    <div class="login-container">
    <form>
     <ion-list lines="none" class="form fade-in">
-    <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
-      <ion-icon name="mail-outline"></ion-icon>
-    </ion-item>
-    <ion-item >
-      <ion-label>Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
-      <ion-icon name="lock-closed-outline"></ion-icon>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="onLogin(email, password)" expand="block">Login</ion-button>
-        <br>
-        <ion-button routerLink="/forgot-password" expand="block">Olvidaste tu contraseña?</ion-button>
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col>
         <ion-button type="submit" color="danger" (click)="onLoginGoogle()" expand="block"
           >Iniciar Sesion con Google
         </ion-button>
-          
-            <a routerLink="/register">Crear una cuenta </a>
-        
       </ion-col>
     </ion-row>
   </ion-list>

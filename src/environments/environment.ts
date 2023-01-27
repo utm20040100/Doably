@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
  firebaseConfig : {
   apiKey: "AIzaSyD1CkvvgAqwOPWQ1mdDx26RboxE7Bbxau0",
   authDomain: "doably-3089f.firebaseapp.com",
+  databaseURL: "https://doably-3089f-default-rtdb.firebaseio.com",
   projectId: "doably-3089f",
   storageBucket: "doably-3089f.appspot.com",
   messagingSenderId: "293207124084",

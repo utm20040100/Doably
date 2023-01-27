@@ -8,19 +8,19 @@
     <div class="login-container">
   <form>
     <ion-list lines="none" class="form fade-in">
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
+    <ion-item>
+      <ion-label >Email</ion-label>
       <ion-input type="text" #email required></ion-input>
     </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
+    <ion-item>
+      <ion-label>Password</ion-label>
       <ion-input type="password" #password required></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
         <ion-button type="submit" (click)="onRegister(email, password)" expand="block">Register</ion-button>
       </ion-col>
-    </ion-row>
+    </ion-row>  
     </ion-list>
   </form>
   <ion-row>

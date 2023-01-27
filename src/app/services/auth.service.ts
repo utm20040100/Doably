@@ -69,7 +69,7 @@ export class AuthService {
     }
   }
 
-  isEmailVerified(user: User): boolean {
+  isEmailVerified(user: User) {
     return user.emailVerified === true ? true : false;
   }
 
@@ -81,7 +81,7 @@ export class AuthService {
     }
   }
 
-  private updateUserData(user: User) {
+  private updateUserData(user:User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
