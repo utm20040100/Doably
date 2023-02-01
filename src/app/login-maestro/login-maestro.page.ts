@@ -38,7 +38,7 @@ export class LoginMaestroPage implements OnInit {
 
   private redirectUser(isVerified: boolean): void {
     if (isVerified) {
-      this.router.navigate(['admin']);
+      this.router.navigate(['admin-maestro']);
     } else {
       this.router.navigate(['verify-email']);
     }

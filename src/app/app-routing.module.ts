@@ -37,6 +37,12 @@ const routes: Routes = [
     path: 'seleccion',
     loadChildren: () => import('./seleccion/seleccion.module').then( m => m.SeleccionPageModule)
   },
+  {
+    path: 'admin-maestro',
+    loadChildren: () => import('./admin-maestro/admin-maestro.module').then( m => m.AdminMaestroPageModule)
+  }
+
+
 
 ];
 

@@ -54,11 +54,23 @@ export class AuthService {
   async login(email: string, password: string): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithEmailAndPassword(email, password);
-      this.updateUserData(user);
+      this.updateMaestroData(user);
       return user;
     } catch (error) {
       console.log('Error->', error);
     }
+  }
+  private updateMaestroData(user:User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`maestros/${user.uid}`);
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      emailVerified: user.emailVerified,
+      displayName: user.displayName,
+    };
+
+    return userRef.set(data, { merge: true });
   }
 
   async sendVerifcationEmail(): Promise<void> {

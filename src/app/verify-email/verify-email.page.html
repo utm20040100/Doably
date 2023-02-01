@@ -4,11 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="user$ | async as user">
+<ion-content *ngIf="user$ | async as maestro">
   <ion-row>
     <ion-col>
       <h2>Thank you for Registering!</h2>
-      <p>We have sent a confirmation email to <strong>{{user.email}}</strong></p>
+      <p>We have sent a confirmation email to <strong>{{maestro.email}}</strong></p>
       <p>Please check your email and click on the link to verify your email address.</p>
     </ion-col>
   </ion-row>

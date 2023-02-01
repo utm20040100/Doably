@@ -13,7 +13,7 @@ export class ForgotPasswordPage {
   async onResetPassword(email) {
     try {
       await this.authSvc.resetPassword(email.value);
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login-maestro']);
     } catch (error) {
       console.log('Error->', error);
     }
