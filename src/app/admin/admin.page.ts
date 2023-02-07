@@ -1,5 +1,7 @@
+import { AuthService } from './../services/auth.service';
+import { User } from './../shared/user.interface';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -7,11 +9,11 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./admin.page.scss'],
 })
 export class AdminPage implements OnInit {
-
-  uid: string = null
-
-  constructor(private AuthService: AuthService) { }
-
-  ngOnInit() {
+  user$: Observable<User> = this.authSvc.afAuth.user;
+  constructor(private authSvc: AuthService) {}
+   ngOnInit() {}
+   
+  
+  
+    
   }
-}

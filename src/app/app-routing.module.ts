@@ -40,7 +40,31 @@ const routes: Routes = [
   {
     path: 'admin-maestro',
     loadChildren: () => import('./admin-maestro/admin-maestro.module').then( m => m.AdminMaestroPageModule)
+  },
+  {
+    path: 'contacto',
+    loadChildren: () => import('./admin/contacto/contacto.module').then( m => m.ContactoPageModule)
+  },
+  {
+    path: 'calificaciones',
+    loadChildren: () => import('./admin/calificaciones/calificaciones.module').then( m => m.CalificacionesPageModule)
+  },
+  {
+    path: 'maestros',
+    loadChildren: () => import('./admin/maestros/maestros.module').then( m => m.MaestrosPageModule)
+  },
+  {
+    path: 'estadisticas',
+    loadChildren: () => import('./admin/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./admin/perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
+
+
+
 
 
 
