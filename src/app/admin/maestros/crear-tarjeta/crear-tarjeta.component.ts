@@ -1,38 +1,43 @@
-import { AuthService } from '../../services/auth.service';
-import { User } from '../../shared/user.interface';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clases } from 'src/app/models/user';
 import { Clase} from 'src/app/services/tarjeta.service';
-import { TarjetaCredito } from '../../models/TarjetaCredito';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './maestros.page.html',
-  styleUrls: ['./maestros.page.scss'],
+  selector: 'app-crear-tarjeta',
+  templateUrl: './crear-tarjeta.component.html',
+  styleUrls: ['./crear-tarjeta.component.css']
 })
-export class MaestrosPage implements OnInit {
-  listTarjetas: TarjetaCredito[] = [];
+export class CrearTarjetaComponent implements OnInit {
   form: FormGroup;
-    loading = false;
-    titulo = 'Agregar Tarjeta';
-    id: string | undefined;
-  user$: Observable<User> = this.authSvc.afAuth.user;
-  constructor(private authSvc: AuthService,
-    private fb: FormBuilder,
+  loading = false;
+  titulo = 'Agregar Tarjeta';
+  id: string | undefined;
+
+  constructor(private fb: FormBuilder,
               private _tarjetaService: Clase) {
     this.form = this.fb.group({
       alumno: ['', Validators.required],
-      nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+      nivelIngles: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
     })
    }
-   ngOnInit(): void {
-      this.obtenerTarjetas();
+
+  ngOnInit(): void {
+    this._tarjetaService.getTarjetaEdit().subscribe(data => {
+      this.id = data.id;
+      this.titulo = 'Editar Tarjeta';
+      this.form.patchValue({
+        alumno: data.alumno,
+        nivelIngles: data.nivelIngles,
+        fecha: data.fecha
+      })
+    })
   }
+
   guardarTarjeta() {
-  
+
     if(this.id === undefined) {
       // Creamos una nueva tarjeta
       this.agregarTarjeta();
@@ -46,9 +51,10 @@ export class MaestrosPage implements OnInit {
 
   editarTarjeta(id: string) {
     const TARJETA: any = {
-      alumno: this.form.value.alumno,
-      nivelIngles: this.form.value.nivelIngles,
-      fecha: this.form.value.fecha,
+      titular: this.form.value.titular,
+      numeroTarjeta: this.form.value.numeroTarjeta,
+      fechaExpiracion: this.form.value.fechaExpiracion,
+      cvv: this.form.value.cvv,
       fechaActualizacion: new Date(),
     }
     this.loading = true;
@@ -63,7 +69,7 @@ export class MaestrosPage implements OnInit {
   }
 
   agregarTarjeta() {
-    const TARJETA: TarjetaCredito = {
+    const TARJETA: Clases = {
       alumno: this.form.value.alumno,
       nivelIngles: this.form.value.nivelIngles,
       fecha: this.form.value.fecha,
@@ -74,35 +80,12 @@ export class MaestrosPage implements OnInit {
     this.loading = true;
     this._tarjetaService.guardarTarjeta(TARJETA).then(() => {
       this.loading = false;
-      console.log('tarjeta registrada');
+      console.log('tarjeta registrado');
       this.form.reset();
     }, error => {
       this.loading = false;
       console.log(error);
     })
   }
-  
-    obtenerTarjetas() {
-      this._tarjetaService.obtenerTarjetas().subscribe(doc => {
-        this.listTarjetas = [];
-        doc.forEach((element: any) => {
-          this.listTarjetas.push({
-            id: element.payload.doc.id,
-            ...element.payload.doc.data()
-          });
-        });
-        console.log(this.listTarjetas);
-      })
-    }
-  
-    eliminarTarjeta(id: any) {
-      this._tarjetaService.eliminarTarjeta(id).then(() => {
-      }, error => {
-        console.log(error);
-      })
-    }
 
-  }
-  
-  
-   
+}

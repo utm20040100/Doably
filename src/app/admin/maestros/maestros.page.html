@@ -1,9 +1,82 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>maestros</ion-title>
-  </ion-toolbar>
+<ion-content *ngIf="user$ | async as user">
+  <ion-header>
+    <ion-toolbar>
+  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+      <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+    </div>
+    <div class="info">
+      <a href="/perfil" class="d-block"><strong>{{user.displayName}}</strong></a>
+    </div>
+  </div>
+</ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+  <div class="card bg-gradient-success">
+    <div class="card-header border-0">
+      
+      <div class="card">
+        <div class="card-body">
+            <h5 class="titulo mb-3">{{ titulo | uppercase }}
+                <div *ngIf="loading" class="spinner-border float-end" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </h5>
+            <form [formGroup]="form" (ngSubmit)="guardarTarjeta()">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="fas fa-user-circle" [class.green-icon]="this.form.get('alumno')?.valid"
+                            [class.red-icon]="this.form.get('alumno')?.invalid && this.form.get('alumno')?.touched"></i>
+                    </span>
+                    <input type="text" formControlName="alumno" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nivelIngles')?.valid"
+                            [class.red-icon]="this.form.get('nivelIngles')?.invalid && this.form.get('nivelIngles')?.touched"></i>
+                    </span>
+                    <input type="text" formControlName="nivelIngles" class="form-control" maxlength="16"
+                        placeholder="Nivel de ingles">
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                                <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fecha')?.valid"
+                                    [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                            </span>
+                            <input type="text" formControlName="fecha" maxlength="5" class="form-control"
+                                placeholder="MM/YY">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button [disabled]="form.invalid" class="btn btn-success btn-lg" type="submit">
+                        <i class="fas fa-database"></i> &nbsp;Aceptar
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+        <div class="card">
+          <div class="card-body">
+              <h5 class="titulo">LISTAR TARJETA</h5>
+              <table class="table">
+                  <tbody>
+                      <tr *ngFor="let tarjeta of listTarjetas">
+                          <td>{{ tarjeta.alumno }}</td>
+                          <td>{{ tarjeta.nivelIngles }}</td>
+                          <td>{{ tarjeta.fecha }}</td>
+                          <td>
+                              <i (click)="editarTarjeta(tarjeta)" class="far fa-edit text-info"></i>
+                              <i (click)="eliminarTarjeta(tarjeta.id)" class="far fa-trash-alt text-danger"></i>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+    </div>
+    </div>
+  </div>
+</div>
 </ion-content>
+
