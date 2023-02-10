@@ -18,6 +18,7 @@ export class MaestrosPage implements OnInit {
     loading = false;
     titulo = 'Agregar Tarjeta';
     id: string | undefined;
+
   user$: Observable<User> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
@@ -25,10 +26,19 @@ export class MaestrosPage implements OnInit {
     this.form = this.fb.group({
       alumno: ['', Validators.required],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-      fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
     })
    }
    ngOnInit(): void {
+    this._tarjetaService.getTarjetaEdit().subscribe(data => {
+      this.id = data.id;
+      this.titulo = 'Editar Tarjeta';
+      this.form.patchValue({
+        alumno: data.alumno,
+        nivelIngles: data.nivelIngles,
+        fecha: data.fecha
+      })
+    })
       this.obtenerTarjetas();
   }
   guardarTarjeta() {
@@ -69,6 +79,8 @@ export class MaestrosPage implements OnInit {
       fecha: this.form.value.fecha,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
+      
+      
     }
 
     this.loading = true;
@@ -82,7 +94,7 @@ export class MaestrosPage implements OnInit {
     })
   }
   
-    obtenerTarjetas() {
+   obtenerTarjetas() {
       this._tarjetaService.obtenerTarjetas().subscribe(doc => {
         this.listTarjetas = [];
         doc.forEach((element: any) => {

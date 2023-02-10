@@ -17,15 +17,15 @@ export class Clase {
   }
 
   obtenerTarjetas(): Observable<any> {
-    return this.firestore.collection('tarjetas', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
+    return this.firestore.collection('clases', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
   }
 
   eliminarTarjeta(id: string): Promise<any> {
-    return this.firestore.collection('tarjetas').doc(id).delete();
+    return this.firestore.collection('clases').doc(id).delete();
   }
 
   editarTarjeta(id: string, tarjeta: any): Promise<any> {
-    return this.firestore.collection('tarjetas').doc(id).update(tarjeta);
+    return this.firestore.collection('clases').doc(id).update(tarjeta);
   }
 
   addTarjetaEdit(tarjeta: Clases) {

@@ -16,12 +16,8 @@
       
       <div class="card">
         <div class="card-body">
-            <h5 class="titulo mb-3">{{ titulo | uppercase }}
-                <div *ngIf="loading" class="spinner-border float-end" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </h5>
             <form [formGroup]="form" (ngSubmit)="guardarTarjeta()">
+                <h3>Nombre completo</h3>
                 <div class="input-group input-group-lg mb-3">
                     <span class="input-group-text">
                         <i class="fas fa-user-circle" [class.green-icon]="this.form.get('alumno')?.valid"
@@ -29,23 +25,44 @@
                     </span>
                     <input type="text" formControlName="alumno" class="form-control" placeholder="Nombre">
                 </div>
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
+                <div class="row">
+                <div class="col-lg-7">
+                    <span class="fas fa-credit-card" [class.green-icon]="this.form.get('nivelIngles')?.valid"
+                    [class.red-icon]="this.form.get('nivelIngles')?.invalid && this.form.get('nivelIngles')?.touched">
+                    <h3>Nivel de ingles</h3>
+                        <select type="text" formControlName="nivelIngles" class="form-control" maxlength="16"
+                        placeholder="Nivel de ingles">
+                            <option>A1</option>
+                            <option>A2</option>
+                            <option>B1</option>
+                            <option>B2</option>
+                            <option>C1</option>
+                          </select>
                         <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nivelIngles')?.valid"
                             [class.red-icon]="this.form.get('nivelIngles')?.invalid && this.form.get('nivelIngles')?.touched"></i>
                     </span>
-                    <input type="text" formControlName="nivelIngles" class="form-control" maxlength="16"
-                        placeholder="Nivel de ingles">
                 </div>
+                </div>
+                <h3>Fecha</h3>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div>
+                                <label class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fecha')?.valid"
+                                [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></label>
+                            <input type="date" formControlName="fecha" min="2023-02-10" max="2023-03-31">
+                        </div>
+                    </div>
+                </div>
+                <h3>Hora</h3>
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="input-group input-group-lg mb-3">
                             <span class="input-group-text">
-                                <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fecha')?.valid"
-                                    [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                                <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('hora')?.valid"
+                                    [class.red-icon]="this.form.get('hora')?.invalid && this.form.get('hora')?.touched"></i>
                             </span>
-                            <input type="text" formControlName="fecha" maxlength="5" class="form-control"
-                                placeholder="MM/YY">
+                            <input type="text" formControlName="hora" maxlength="5" class="form-control"
+                                placeholder="Hora">
                         </div>
                     </div>
                 </div>
@@ -59,16 +76,18 @@
         </div>
         <div class="card">
           <div class="card-body">
-              <h5 class="titulo">LISTAR TARJETA</h5>
+              <h3 class="titulo">Tus clases esta semana</h3>
               <table class="table">
                   <tbody>
-                      <tr *ngFor="let tarjeta of listTarjetas">
-                          <td>{{ tarjeta.alumno }}</td>
-                          <td>{{ tarjeta.nivelIngles }}</td>
-                          <td>{{ tarjeta.fecha }}</td>
+                    <tr  *ngIf="user$ | async as user">
+                        <td>{{user.displayName}}</td>
+                    </tr>
+                      <tr *ngFor="let clases of listTarjetas">
+                          <td>{{ clases.nivelIngles }}</td>
+                          <td>{{ clases.fecha }}</td>
                           <td>
-                              <i (click)="editarTarjeta(tarjeta)" class="far fa-edit text-info"></i>
-                              <i (click)="eliminarTarjeta(tarjeta.id)" class="far fa-trash-alt text-danger"></i>
+                              <button (click)="editarTarjeta(clases)" class="far fa-edit text-info"></button>
+                              <button (click)="eliminarTarjeta(clases.id)" class="far fa-trash-alt text-danger"></button>
                           </td>
                       </tr>
                   </tbody>
