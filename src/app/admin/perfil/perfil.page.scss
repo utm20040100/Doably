@@ -1,0 +1,12 @@
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 50%;  /* para hacer el borde redondeado */
+  }
+
+  .profile-image img {
+    width: 100%;   /* para que la imagen se ajuste al tamaño del contenedor */
+    height: 100%;  /* para que la imagen se ajuste al tamaño del contenedor */
+    border-radius: 50%;  /* para hacer el borde redondeado */
+  }  									  
