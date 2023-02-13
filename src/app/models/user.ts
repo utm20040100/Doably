@@ -18,11 +18,13 @@ export class Clases {
   fecha: string;
   fechaCreacion: Date;
   fechaActualizacion: Date;
+  hora: string;
 
-  constructor(alumno: string, nivelIngles: string, fecha: string) {
+  constructor(alumno: string, nivelIngles: string, fecha: string, nivel_ingles: string, hora: string) {
       this.alumno = alumno;
       this.nivelIngles = nivelIngles;
       this.fecha = fecha;
+      this.hora = hora;
       this.fechaCreacion = new Date();
       this.fechaActualizacion = new Date();
   }
