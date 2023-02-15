@@ -54,10 +54,6 @@ const routes: Routes = [
     loadChildren: () => import('./admin/maestros/maestros.module').then( m => m.MaestrosPageModule)
   },
   {
-    path: 'crear-tarjeta',
-    loadChildren: () => import('./admin/maestros/crear-tarjeta/crear-tarjeta.component').then( m => m.CrearTarjetaComponent)
-  },
-  {
     path: 'estadisticas',
     loadChildren: () => import('./admin/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
   },

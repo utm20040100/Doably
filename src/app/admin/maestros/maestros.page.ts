@@ -3,7 +3,6 @@ import { User } from '../../shared/user.interface';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Clases } from 'src/app/models/user';
 import { Clase} from 'src/app/services/tarjeta.service';
 import { TarjetaCredito } from '../../models/TarjetaCredito';
 
@@ -18,15 +17,15 @@ export class MaestrosPage implements OnInit {
     loading = false;
     titulo = 'Agregar Tarjeta';
     id: string | undefined;
-
   user$: Observable<User> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
               private _tarjetaService: Clase) {
     this.form = this.fb.group({
-      alumno: ['', Validators.required],
+      alumno:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
     })
    }
    ngOnInit(): void {
@@ -36,7 +35,8 @@ export class MaestrosPage implements OnInit {
       this.form.patchValue({
         alumno: data.alumno,
         nivelIngles: data.nivelIngles,
-        fecha: data.fecha
+        fecha: data.fecha,
+        hora: data.hora
       })
     })
       this.obtenerTarjetas();
@@ -77,10 +77,9 @@ export class MaestrosPage implements OnInit {
       alumno: this.form.value.alumno,
       nivelIngles: this.form.value.nivelIngles,
       fecha: this.form.value.fecha,
+      hora: this.form.value.hora,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
-      
-      
     }
 
     this.loading = true;
