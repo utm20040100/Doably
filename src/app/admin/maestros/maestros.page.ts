@@ -17,13 +17,12 @@ export class MaestrosPage implements OnInit {
     loading = false;
     titulo = 'Agregar Tarjeta';
     id: string | undefined;
-
   user$: Observable<User> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
               private _tarjetaService: Clase) {
     this.form = this.fb.group({
-      alumno: ['', Validators.required],
+      alumno:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],

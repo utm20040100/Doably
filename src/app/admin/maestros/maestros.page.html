@@ -22,11 +22,7 @@
             <form [formGroup]="form" (ngSubmit)="guardarTarjeta()">
                 <h3>Nombre completo</h3>
                 <div class="input-group input-group-lg mb-3">
-                    <span>
-                        <i class="fas fa-user-circle" [class.green-icon]="this.form.get('alumno')?.valid"
-                            [class.red-icon]="this.form.get('alumno')?.invalid && this.form.get('alumno')?.touched"></i>
-                    </span>
-                    <input type="text" formControlName="alumno" class="form-control" placeholder="Nombre">
+                    <input type="text" formControlName="alumno" class="form-control" value="{{user.displayName}}" placeholder="{{user.displayName}}">
                 </div>
                 <div class="row">
                 <div class="col-lg-7">
