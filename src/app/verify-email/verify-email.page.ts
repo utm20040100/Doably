@@ -1,4 +1,4 @@
-import { User } from './../shared/user.interface';
+import { User } from './../models/user';
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';

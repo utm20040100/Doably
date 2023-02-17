@@ -6,7 +6,7 @@
     <ion-toolbar>
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-      <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      <img src="assets/img/MANZANA DOABLY.png" class="img-circle elevation-2" alt="User Image">
     </div>
     <div class="info">
       <a href="/perfil" class="d-block"><strong>{{user.displayName}}</strong></a>
@@ -19,10 +19,18 @@
       
       <div class="card">
         <div class="card-body">
-            <form [formGroup]="form" (ngSubmit)="guardarTarjeta()">
-                <h3>Nombre completo</h3>
-                <div class="input-group input-group-lg mb-3">
-                    <input type="text" formControlName="alumno" class="form-control" value="{{user.displayName}}" placeholder="{{user.displayName}}">
+            <form [formGroup]="form" (ngSubmit)="agregarTarjeta()">
+              <div class="row">
+                <div class="col-lg-7">
+                    <span>
+                    <h3>Nombre</h3>
+                        <select type="text" formControlName="nombre_alumno" class="form-control" value="{{user.displayName}}">
+                            <option>{{user.displayName}}</option>
+                          </select>
+                        <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nombre_alumno')?.valid"
+                            [class.red-icon]="this.form.get('nombre_alumno')?.invalid && this.form.get('nombre_alumno')?.touched"></i>
+                    </span>
+                </div>
                 </div>
                 <div class="row">
                 <div class="col-lg-7">
@@ -43,14 +51,23 @@
                 </div>
                 <h3>Fecha</h3>
                 <div class="row">
-                    <div class="col-lg-7">
-                        <div>
-                                <label class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fecha')?.valid"
-                                [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></label>
-                            <input type="date" formControlName="fecha" min="2023-02-10" max="2023-03-31">
-                        </div>
-                    </div>
+                <div class="col-lg-7">
+                  <span>
+                      <select type="text" formControlName="fecha" class="form-control" maxlength="16"
+                      placeholder="Fecha">
+                          <option>Lunes</option>
+                          <option>Martes</option>
+                          <option>Miercoles</option>
+                          <option>Jueves</option>
+                          <option>Viernes</option>
+                        </select>
+                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('fecha')?.valid"
+                          [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                  </span>
+              </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-7">
                 <h3>Hora</h3>
                 <div class="input-group input-group-lg mb-3">
                   <span >
@@ -63,6 +80,8 @@
                     <button [disabled]="form.invalid" class="btn btn-success btn-lg" type="submit">
                         <i class="fas fa-database"></i> &nbsp;Aceptar
                     </button>
+                </div>
+                  </div>
                 </div>
             </form>
             

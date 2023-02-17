@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, Subject } from 'rxjs';
 import { Clases } from '../models/user';
+import { User } from '../models/user';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class Clase {
 
   constructor(private firestore: AngularFirestore) { }
 
-  guardarTarjeta(tarjeta: Clases): Promise<any> {
+  agregarTarjeta(tarjeta: Clases): Promise<any> {
     return this.firestore.collection('clases').add(tarjeta);
   }
 
