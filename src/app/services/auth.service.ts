@@ -30,6 +30,7 @@ export class AuthService {
     }
   }
 
+
   async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -39,6 +40,7 @@ export class AuthService {
       console.log('Error->', error);
     }
   }
+
 
   async register(email: string, password: string): Promise<User> {
     try {

@@ -2652,35 +2652,35 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #ffffff;
-  background-color: #28a745;
+  background-color: #142c5c ;
   border-color: #28a745;
   box-shadow: none;
 }
 
 .btn-success:hover {
   color: #ffffff;
-  background-color: #218838;
+  background-color: #142c5c ;
   border-color: #1e7e34;
 }
 
 .btn-success:focus, .btn-success.focus {
   color: #ffffff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: #142c5c ;
+  border-color: #142c5c ;
   box-shadow: none, 0 0 0 0 rgba(72, 180, 97, 0.5);
 }
 
 .btn-success.disabled, .btn-success:disabled {
   color: #ffffff;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #142c5c ;
+  border-color: #142c5c ;
 }
 
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
 .show > .btn-success.dropdown-toggle {
   color: #ffffff;
-  background-color: #1e7e34;
-  border-color: #1c7430;
+  background-color: #142c5c ;
+  border-color: #142c5c ;
 }
 
 .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
@@ -4805,6 +4805,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+
 }
 
 .card-title {

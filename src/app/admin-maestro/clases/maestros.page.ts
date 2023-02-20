@@ -97,7 +97,7 @@ export class MaestrosPage implements OnInit {
         this.listTarjetas = [];
         doc.forEach((element: any) => {
           this.listTarjetas.push({
-            display_Name: element.payload.doc.nombre_alumno,
+            id: element.payload.doc.id,
             ...element.payload.doc.data()
           });
         });

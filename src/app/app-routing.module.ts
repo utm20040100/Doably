@@ -54,6 +54,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/maestros/maestros.module').then( m => m.MaestrosPageModule)
   },
   {
+    path: 'clases',
+    loadChildren: () => import('./admin-maestro/clases/maestros.module').then( m => m.MaestrosPageModule)
+  },
+  {
     path: 'estadisticas',
     loadChildren: () => import('./admin/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
   },

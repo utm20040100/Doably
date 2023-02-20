@@ -3,29 +3,29 @@
 </ion-header>
 <ion-content *ngIf="user$ | async as user">
   <ion-header>
-    <ion-toolbar>
-  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+   <ion-toolbar>
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
       <img src="assets/img/MANZANA DOABLY.png" class="img-circle elevation-2" alt="User Image">
     </div>
     <div class="info">
       <a href="/perfil" class="d-block"><strong>{{user.displayName}}</strong></a>
     </div>
-  </div>
-</ion-toolbar>
-</ion-header>
+   </div>
+    </ion-toolbar>
+  </ion-header>
   <div class="card bg-gradient-success">
     <div class="card-header border-0">
       
-      <div class="card">
+      <div class="card"  >
         <div class="card-body">
-            <form [formGroup]="form" (ngSubmit)="agregarTarjeta()">
+            <form [formGroup]="form" (ngSubmit)="agregarTarjeta()" >
               <div class="row">
                 <div class="col-lg-7">
                     <span>
                     <h3>Nombre</h3>
                         <select type="text" formControlName="nombre_alumno" class="form-control" value="{{user.displayName}}">
-                            <option>{{user.displayName}}</option>
+                          <option>{{user.displayName}}</option>
                           </select>
                         <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nombre_alumno')?.valid"
                             [class.red-icon]="this.form.get('nombre_alumno')?.invalid && this.form.get('nombre_alumno')?.touched"></i>
@@ -72,12 +72,12 @@
                 <div class="input-group input-group-lg mb-3">
                   <span >
                       <i class="fas fa-user-circle" [class.green-icon]="this.form.get('hora')?.valid"
-                          [class.red-icon]="this.form.get('hroa')?.invalid && this.form.get('hora')?.touched"></i>
+                          [class.red-icon]="this.form.get('hora')?.invalid && this.form.get('hora')?.touched"></i>
                   </span>
                   <input type="time" formControlName="hora" class="form-control" placeholder="Hora">
               </div>
                 <div class="d-grid gap-2">
-                    <button [disabled]="form.invalid" class="btn btn-success btn-lg" type="submit">
+                    <button [disabled]="form.invalid" class="boton" type="submit">
                         <i class="fas fa-database"></i> &nbsp;Aceptar
                     </button>
                 </div>

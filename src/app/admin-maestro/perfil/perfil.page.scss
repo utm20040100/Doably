@@ -1,0 +1,125 @@
+.center-span {
+  display: block;
+  text-align: center;
+}
+.sign-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+      flex: 1;
+      .title {
+          padding-top: 30px;
+          img {
+              width: 300px;
+          }
+      }
+  }
+  .login-container {
+      flex: 2
+  }
+
+  .form {
+      --background: none;
+      background: none;
+      max-width: 320px;
+      margin: 0 auto;
+
+      ion-item {
+          --background: #ffffff;
+          --border-radius: 4px;
+          --border-color: transparent !important;
+          --highlight-height: 0;
+          color: #000000;
+          margin-bottom: 15px;
+
+          ion-icon {
+              color: #000000;
+          }
+      }
+  }
+
+  .sign-up-container {
+      position: absolute;
+      bottom: 0;
+      height: 70px;
+      width: 100%;
+      padding-top: 10px;
+      transition: all 1s;
+      border-radius: 75% 75% 0 0 / 30%;
+      overflow: hidden;
+
+      &.active {
+          height: calc(90% - 180px);
+      }
+      
+      .toggle-text {
+          color: #000000;
+          font-size: 16px;
+          margin-bottom: 60px;
+      }
+
+      .form {
+          ion-item {
+              --background: #ffffff;
+          }
+      }
+  }
+}
+
+.gradient-1 {
+  --background: linear-gradient(180deg,  #bcd33c  0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #bcd33c);
+}
+.gradient-2 {
+  --background: linear-gradient(180deg,  #142c5c, #142c5c );
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #142c5c 500%);
+}
+
+.green-button {
+  --background:     #142c5c  ;
+  color: #FFF;
+  
+}
+.green-text {
+  --background:     #ffffff  ;
+  color: #142c5c;
+  
+}
+.gray-button {
+  --background: #bcd33c;
+  color: rgb(0, 0, 0);
+  font-weight:bold;
+}
+
+.fade-in {
+  animation: fadein 2s;
+}
+.fade-out {
+  animation: fadeout 1s;
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@keyframes fadeout {
+  from {
+      opacity:1;
+  }
+  to {
+      opacity:0;
+  }
+}
+h4{
+  color: #142c5c;
+}
+img{
+  width: 200px;
+}
