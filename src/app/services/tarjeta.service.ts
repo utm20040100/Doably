@@ -18,7 +18,7 @@ export class Clase {
   }
 
   obtenerTarjetas(): Observable<any> {
-    return this.firestore.collection('clases', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
+    return this.firestore.collection('clases', ref => ref.orderBy('nombre_alumno')).snapshotChanges();
   }
 
   eliminarTarjeta(id: string): Promise<any> {
