@@ -4,6 +4,19 @@ export interface User {
   displayName: string;
   emailVerified: boolean;
 }
+export class Calificacion{
+  id?: string;
+  nivelIngles: string;
+  fecha: string;
+  calificacion: string;
+  nombre_alumno: string;
+  constructor(nombre_alumno: string, nivelIngles: string, fecha: string, calificacion: string) {
+    this.nivelIngles = nivelIngles;
+    this.fecha = fecha;
+    this.calificacion = calificacion;
+    this.nombre_alumno = nombre_alumno;
+}
+}
 export class Clases {
   id?: string;
   nivelIngles: string;

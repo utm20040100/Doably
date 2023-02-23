@@ -5,12 +5,12 @@ import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Clases, Calificacion } from '../models/user';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public user$: Observable<User>;
-
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -29,8 +29,6 @@ export class AuthService {
       console.log('Error->', error);
     }
   }
-
-
   async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -42,7 +40,7 @@ export class AuthService {
   }
 
 
-  async register(email: string, password: string): Promise<User> {
+  async register(displayName:string, email: string, password: string): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
       await this.sendVerifcationEmail();
