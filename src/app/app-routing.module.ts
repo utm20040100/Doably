@@ -69,6 +69,11 @@ const routes: Routes = [
     path: 'calif',
     loadChildren: () => import('./admin-maestro/calif/calif.module').then( m => m.CalifPageModule)
   },
+  {
+    path: 'calificar-alumno',
+    loadChildren: () => import('./admin-maestro/calificar-alumno/calificar-alumno.module').then( m => m.CalificarAlumnoPageModule)
+  },
+
 
  
 

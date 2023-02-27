@@ -6,14 +6,16 @@
 }
 table{
     border-radius: 0.50rem;
-    text-align: center;
     font-size: large;
 }
 h3{
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style:inherit;
     font-weight: 200;
+}
+td{
     text-align: center;
+    font-size: 20px;
 }
 .boton{
     background-color: #142c5c;
@@ -51,17 +53,7 @@ h3{
 .red-icon {
     color: #dc3545;
 }
-a{
-    text-align: center;
-    font-size: 20px;
-    color: #142c5c;
-}
-h2{
-    color: #142c5c;
-}
-option{
-    color: #142c5c;
-}
+
 .spinner-border {
     height: 1.5rem;
     width: 1.5rem;

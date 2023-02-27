@@ -15,6 +15,9 @@ export class Clase {
   agregarTarjeta(tarjeta: Clases): Promise<any> {
     return this.firestore.collection('clases').add(tarjeta);
   }
+  agregarCalificacion(tarjeta: Clases): Promise<any> {
+    return this.firestore.collection('calificaciones').add(tarjeta);
+  }
 
   obtenerTarjetas(): Observable<any> {
     return this.firestore.collection('users', ref => ref.orderBy('displayName')).snapshotChanges();
