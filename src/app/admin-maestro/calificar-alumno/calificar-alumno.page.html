@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-button routerLink="/admin" expand="block">Regresar</ion-button>
+  <ion-button routerLink="/admin-maestro" expand="block">Regresar</ion-button>
 </ion-header>
 <ion-content *ngIf="user$ | async as user">
   <ion-header>
@@ -22,11 +22,9 @@
             <form [formGroup]="form" (ngSubmit)="agregarCalificacion()" >
               <div class="row">
                 <div class="col-lg-7">
-                    <span>
-                    <h3>Nombre</h3>
-                        <select type="text" formControlName="nombre_alumno" class="form-control" value="{{user.displayName}}">
-                          <option>Juan Jesus</option>
-                          </select>
+                  <h3 >Nombre del alumno</h3>
+                    <span *ngFor="let users of listTarjetas" >
+                          <input formControlName="nombre_alumno" class="form-control" id="opt-in" type="checkbox" id="product-1-1" name="check" value="{{users.displayName}}" class="check"/>{{users.displayName}}<br/>
                         <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nombre_alumno')?.valid"
                             [class.red-icon]="this.form.get('nombre_alumno')?.invalid && this.form.get('nombre_alumno')?.touched"></i>
                     </span>
@@ -86,28 +84,6 @@
             </form>
             
         </div>
-        <div >
-          <div class="card-body">
-              <h3 class="titulo">Tus clases esta semana</h3>
-              <table class="table">
-                    <tr>
-                        <td>Nombre</td>
-                        <td>Nivel de ingles</td>
-                        <td>Fecha</td>
-                        <td>Hora</td>
-                    </tr>
-                      <ng-container *ngFor="let clases of listTarjetas">
-                        <tr *ngIf="user.displayName === clases.nombre_alumno">
-                          <th scope="row">{{clases.nombre_alumno}}</th>
-                          <td>{{clases.nivelIngles }}</td>
-                          <td>{{clases.fecha }}</td>
-                          <td>{{clases.hora }}</td>
-                           
-                        
-                      </ng-container>
-              </table>
-          </div>
-    </div>
     </div>
   </div>
 </div>
