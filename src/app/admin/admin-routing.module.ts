@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: AdminPage
+  },
+  {
+    path: 'maestro',
+    loadChildren: () => import('./maestros/maestros.module').then( m => m.MaestrosPageModule)
   }
+
 ];
 
 @NgModule({

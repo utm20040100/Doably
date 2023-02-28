@@ -1,18 +1,18 @@
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/user';
+import { User, Calificacion } from '../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Clase} from 'src/app/services/tarjeta.service';
+import { Clase} from 'src/app/services/alumnos.service';
 import { Clases } from '../../models/user';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './maestros.page.html',
-  styleUrls: ['./maestros.page.scss'],
+  templateUrl: './calificar-alumno.page.html',
+  styleUrls: ['./calificar-alumno.page.scss'],
 })
-export class MaestrosPage implements OnInit {
-  listTarjetas: Clases[] = [];
+export class CalificarAlumnoPage implements OnInit {
+  listTarjetas: Calificacion[] = [];
   form: FormGroup;
     loading = false;
     titulo = 'Agregar Tarjeta';
@@ -22,7 +22,7 @@ export class MaestrosPage implements OnInit {
     private fb: FormBuilder,
               private _tarjetaService: Clase) {
     this.form = this.fb.group({
-      nombre_alumno: ['{{user.displayName}}', []],
+      nombre_alumno: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
@@ -40,19 +40,7 @@ export class MaestrosPage implements OnInit {
     })
       this.obtenerTarjetas();
   }
-  
-  guardaraTarjeta() {
-  
-    if(this.id === undefined) {
-      // Creamos una nueva tarjeta
-      this.agregarTarjeta();
 
-    } else {
-      // Editamos una nueva tarjeta
-      this.editarTarjeta(this.id);
-    }
-    
-  }
 
   editarTarjeta(id: string) {
     const TARJETA: any = {
@@ -71,7 +59,7 @@ export class MaestrosPage implements OnInit {
     })
   }
 
-  agregarTarjeta() {
+  agregarCalificacion() {
     const TARJETA: Clases = {
       nombre_alumno: this.form.value.nombre_alumno,
       nivelIngles: this.form.value.nivelIngles,
@@ -82,7 +70,7 @@ export class MaestrosPage implements OnInit {
     }
 
     this.loading = true;
-    this._tarjetaService.agregarTarjeta(TARJETA).then(() => {
+    this._tarjetaService.agregarCalificacion(TARJETA).then(() => {
       this.loading = false;
       console.log('tarjeta registrada');
       this.form.reset();
@@ -97,19 +85,7 @@ export class MaestrosPage implements OnInit {
         this.listTarjetas = [];
         doc.forEach((element: any) => {
           this.listTarjetas.push({
-            display_Name: element.payload.doc.nombre_alumno,
-            ...element.payload.doc.data()
-          });
-        });
-        console.log(this.listTarjetas);
-      })
-    }
-    obtenerAlumnos() {
-      this._tarjetaService.obtenerAlumnos().subscribe(doc => {
-        this.listTarjetas = [];
-        doc.forEach((element: any) => {
-          this.listTarjetas.push({
-            display_Name: element.payload.doc.nombre_alumno,
+            id: element.payload.doc.id,
             ...element.payload.doc.data()
           });
         });
