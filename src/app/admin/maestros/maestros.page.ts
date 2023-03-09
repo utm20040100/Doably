@@ -5,13 +5,21 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clase} from 'src/app/services/tarjeta.service';
 import { Clases } from '../../models/user';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './maestros.page.html',
   styleUrls: ['./maestros.page.scss'],
 })
 export class MaestrosPage implements OnInit {
+
+  async onSendLink(): Promise<void> {
+    try {
+      await this.authSvc.sendVerifcationClass();
+    } catch (error) {
+      console.log('Error->', error);
+    }
+  }
   listTarjetas: Clases[] = [];
   form: FormGroup;
     loading = false;
@@ -20,7 +28,7 @@ export class MaestrosPage implements OnInit {
   user$: Observable<User> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
-              private _tarjetaService: Clase) {
+              private _tarjetaService: Clase,  private router: Router) {
     this.form = this.fb.group({
       nombre_alumno: ['{{user.displayName}}', []],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],

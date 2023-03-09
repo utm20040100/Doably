@@ -66,6 +66,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
+    path: 'perfil-maestro',
+    loadChildren: () => import('./admin-maestro/perfil-maestro/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
     path: 'calif',
     loadChildren: () => import('./admin-maestro/calif/calif.module').then( m => m.CalifPageModule)
   },

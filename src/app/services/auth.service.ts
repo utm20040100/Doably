@@ -83,6 +83,14 @@ export class AuthService {
   isEmailVerified(user: User) {
     return user.emailVerified === true ? true : false;
   }
+  
+  async sendVerifcationClass(): Promise<void> {
+    try {
+      return (await this.afAuth.currentUser).sendEmailVerification();
+    } catch (error) {
+      console.log('Error->', error);
+    }
+  }
 
   async logout(): Promise<void> {
     try {

@@ -6,14 +6,16 @@ export interface User {
 }
 export class Calificacion{
   id?: string;
-  nivelIngles: string;
-  fecha: string;
-  calificacion: string;
+  writting: string;
+  speaking: string;
+  retroalimentacion: string;
   nombre_alumno: string;
-  constructor(nombre_alumno: string, nivelIngles: string, fecha: string, calificacion: string) {
-    this.nivelIngles = nivelIngles;
-    this.fecha = fecha;
-    this.calificacion = calificacion;
+  semana: string;
+  constructor(semana: string, nombre_alumno: string, writting: string, speaking: string, retroalimentacion: string) {
+    this.writting = writting;
+    this.speaking = speaking;
+    this.semana = semana;
+    this.retroalimentacion = retroalimentacion;
     this.nombre_alumno = nombre_alumno;
 }
 }

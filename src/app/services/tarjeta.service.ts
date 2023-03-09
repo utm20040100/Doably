@@ -22,6 +22,9 @@ export class Clase {
   obtenerTarjetas(): Observable<any> {
     return this.firestore.collection('clases', ref => ref.orderBy('nombre_alumno')).snapshotChanges();
   }
+  obtenerMaestros(): Observable<any> {
+    return this.firestore.collection('maestros', ref => ref.orderBy('display_Name')).snapshotChanges();
+  }
   eliminarTarjeta(id: string): Promise<any> {
     return this.firestore.collection('clases').doc(id).delete();
   }

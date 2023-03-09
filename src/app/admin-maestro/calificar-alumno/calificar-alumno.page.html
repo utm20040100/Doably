@@ -22,65 +22,86 @@
             <form [formGroup]="form" (ngSubmit)="agregarCalificacion()" >
               <div class="row">
                 <div class="col-lg-7">
-                  <h3 >Nombre del alumno</h3>
-                    <span *ngFor="let users of listTarjetas" >
-                          <input formControlName="nombre_alumno" class="form-control" id="opt-in" type="checkbox" id="product-1-1" name="check" value="{{users.displayName}}" class="check"/>{{users.displayName}}<br/>
-                        <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nombre_alumno')?.valid"
-                            [class.red-icon]="this.form.get('nombre_alumno')?.invalid && this.form.get('nombre_alumno')?.touched"></i>
-                    </span>
+                  <h3>Nombre del alumno</h3>
+                <input formControlName="nombre_alumno" class="form-control" placeholder="Tal cual esta en su nombre de usuario" type="text" #email required >
+                <ion-icon name="mail-outline"></ion-icon>
                 </div>
-                </div>
+              </div>
                 <div class="row">
                 <div class="col-lg-7">
                     <span>
-                    <h3>Nivel de ingles</h3>
-                        <select type="text" formControlName="nivelIngles" class="form-control" maxlength="16"
-                        placeholder="Nivel de ingles">
-                            <option>A1</option>
-                            <option>A2</option>
-                            <option>B1</option>
-                            <option>B2</option>
-                            <option>C1</option>
+                    <h3>Semana</h3>
+                        <select type="text" formControlName="semana" class="form-control" maxlength="16"
+                        placeholder="Semana">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
                           </select>
-                        <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nivelIngles')?.valid"
-                            [class.red-icon]="this.form.get('nivelIngles')?.invalid && this.form.get('nivelIngles')?.touched"></i>
+                        <i class="fas fa-credit-card" [class.green-icon]="this.form.get('semana')?.valid"
+                            [class.red-icon]="this.form.get('semana')?.invalid && this.form.get('semana')?.touched"></i>
                     </span>
                 </div>
                 </div>
-                <h3>Fecha</h3>
+                <h3>Writting</h3>
                 <div class="row">
                 <div class="col-lg-7">
                   <span>
-                      <select type="text" formControlName="fecha" class="form-control" maxlength="16"
+                      <select type="text" formControlName="writting" class="form-control" maxlength="16"
                       placeholder="Fecha">
-                          <option>Lunes</option>
-                          <option>Martes</option>
-                          <option>Miercoles</option>
-                          <option>Jueves</option>
-                          <option>Viernes</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
                         </select>
-                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('fecha')?.valid"
-                          [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('writting')?.valid"
+                          [class.red-icon]="this.form.get('writting')?.invalid && this.form.get('writting')?.touched"></i>
                   </span>
               </div>
                 </div>
+                <h3>Speaking</h3>
+                <div class="row">
+                <div class="col-lg-7">
+                  <span>
+                      <select type="text" formControlName="speaking" class="form-control" maxlength="16"
+                      placeholder="Speaking">
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                        </select>
+                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('speaking')?.valid"
+                          [class.red-icon]="this.form.get('speaking')?.invalid && this.form.get('speaking')?.touched"></i>
+                  </span>
+              </div>
+              <br>
+                </div>
+                <h3>Retroalimentacion</h3>
                 <div class="row">
                   <div class="col-lg-7">
-                <h3>Hora</h3>
-                <div class="input-group input-group-lg mb-3">
-                  <span >
-                      <i class="fas fa-user-circle" [class.green-icon]="this.form.get('hora')?.valid"
-                          [class.red-icon]="this.form.get('hora')?.invalid && this.form.get('hora')?.touched"></i>
-                  </span>
-                  <input type="time" formControlName="hora" class="form-control" placeholder="Hora">
-              </div>
-                <div class="d-grid gap-2">
-                    <button [disabled]="form.invalid" class="boton" type="submit">
-                        <i class="fas fa-database"></i> &nbsp;Aceptar
-                    </button>
-                </div>
+                    <textarea formControlName="retroalimentacion" class="form-control"></textarea>
+                    <i class="fas fa-credit-card" [class.green-icon]="this.form.get('retroalimentacion')?.valid"
+                            [class.red-icon]="this.form.get('retroalimentacion')?.invalid && this.form.get('retroalimentacion')?.touched"></i>
                   </div>
                 </div>
+                <br>
+                <div class="d-grid gap-2">
+                  <button [disabled]="form.invalid" class="boton" type="submit">
+                      <i class="fas fa-database"></i> &nbsp;Enviar calificacion
+                  </button>
+              </div>
             </form>
             
         </div>

@@ -17,7 +17,7 @@
   <div class="card bg-gradient-success">
     <div class="card-header border-0">
       
-      <div class="card"  >
+      <div>
         <div class="card">
           <div class="card-body">
               <h3 class="titulo">Calificar alumnos 
@@ -32,7 +32,7 @@
                      </tr>
                      <ng-container>
                       <tr *ngFor="let users of listTarjetas">
-                        <a href="/calificar-alumno" id="usuarioseleccionado" class="usuarioseleccionado"><td>{{users.displayName}}</td></a>
+                        <a href="/calificar-alumno" ><td>{{users.displayName}}</td></a>
                         <td>{{users.email}}</td>
                         
                       </tr>
