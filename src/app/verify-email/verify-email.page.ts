@@ -23,4 +23,11 @@ export class VerifyEmailPage {
   ngOnDestroy(): void {
     this.authSvc.logout();
   }
+  async onSendLink(): Promise<void> {
+    try {
+      await this.authSvc.sendVerifcationClass();
+    } catch (error) {
+      console.log('Error->', error);
+    }
+  }
 }

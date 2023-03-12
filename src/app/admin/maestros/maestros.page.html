@@ -75,9 +75,10 @@
                           [class.red-icon]="this.form.get('hora')?.invalid && this.form.get('hora')?.touched"></i>
                   </span>
                   <input type="time" formControlName="hora" class="form-control" placeholder="Hora">
-              </div>
+                </div>
+                
                 <div class="d-grid gap-2">
-                    <button [disabled]="form.invalid" class="boton" type="submit">
+                    <button [disabled]="form.invalid" class="boton" type="submit" >
                         <i class="fas fa-database"></i> &nbsp;Aceptar
                     </button>
                 </div>

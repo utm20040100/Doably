@@ -4,15 +4,17 @@
 }.green-icon {
     color: #142c5c ;
 }
-table{
+.fondo{
+    background-color: #142c5c;
+    color: #ffff;
+}
+.table{
     border-radius: 0.50rem;
     text-align: center;
     font-size: large;
+    color: #ffff;
 }
-h3{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style:inherit;
-    font-weight: 200;
+h2{
     text-align: center;
 }
 .botoneliminar{
@@ -39,6 +41,7 @@ h3{
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .boton2{
     background-color: #fefeff;
     display: inline-block;
@@ -71,12 +74,7 @@ h3{
 .titulo{
     color: black;
 }
-.table{
-    background-color: #142c5c ;
-}
-h3{
-    color: black;
-}
+
 input{
     color: #dc3545;
 }
