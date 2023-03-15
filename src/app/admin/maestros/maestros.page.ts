@@ -87,6 +87,8 @@ export class MaestrosPage implements OnInit {
       hora: this.form.value.hora,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
+      url: this.form.value.url,
+      maestro_t: this.form.value,
     }
 
     this.loading = true;

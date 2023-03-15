@@ -26,15 +26,17 @@ export class Clases {
   fechaCreacion: Date;
   fechaActualizacion: Date;
   hora: string;
-  nombre_alumno: string
+  nombre_alumno: string;
+ 
 
 
-  constructor(nombre_alumno: string, nivelIngles: string, fecha: string, hora: string) {
+  constructor(nombre_alumno: string, nivelIngles: string, fecha: string, hora: string ,url: string,maestro_t: string) {
       this.nivelIngles = nivelIngles;
       this.fecha = fecha;
       this.hora = hora;
       this.nombre_alumno = nombre_alumno;
       this.fechaCreacion = new Date();
       this.fechaActualizacion = new Date();
+
   }
 }
