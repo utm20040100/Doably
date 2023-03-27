@@ -104,6 +104,18 @@ export class MaestrosPage implements OnInit {
         console.log(this.listTarjetas);
       })
     }
+    obtenerMestros() {
+      this._tarjetaService.obtenerMaestros().subscribe(doc => {
+        this.listTarjetas = [];
+        doc.forEach((element: any) => {
+          this.listTarjetas.push({
+            id: element.payload.doc.id,
+            ...element.payload.doc.data()
+          });
+        });
+        console.log(this.listTarjetas);
+      })
+    }
   
     eliminarTarjeta(id: any) {
       this._tarjetaService.eliminarTarjeta(id).then(() => {

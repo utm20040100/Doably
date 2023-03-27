@@ -49,6 +49,23 @@
                     </span>
                 </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-7">
+                      <span>
+                      <h3>Nivel de ingles</h3>
+                          <select type="text" formControlName="nivelIngles" class="form-control" maxlength="16"
+                          placeholder="Nivel de ingles">
+                              <option>A1</option>
+                              <option>A2</option>
+                              <option>B1</option>
+                              <option>B2</option>
+                              <option>C1</option>
+                            </select>
+                          <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nivelIngles')?.valid"
+                              [class.red-icon]="this.form.get('nivelIngles')?.invalid && this.form.get('nivelIngles')?.touched"></i>
+                      </span>
+                  </div>
+                  </div>
                 <h3>Fecha</h3>
                 <div class="row">
                 <div class="col-lg-7">
@@ -95,7 +112,12 @@
                         <td>Nivel de ingles</td>
                         <td>Fecha</td>
                         <td>Hora</td>
+<<<<<<< HEAD
                         
+=======
+                        <td>Maestro<td>
+                        <td>url</td>
+>>>>>>> 2af19471739c1f23defa015dcaaa77d5bcc808c3
                     </tr>
                       <ng-container *ngFor="let clases of listTarjetas">
                         <tr *ngIf="user.displayName === clases.nombre_alumno">
@@ -103,6 +125,17 @@
                           <td>{{clases.nivelIngles }}</td>
                           <td>{{clases.fecha }}</td>
                           <td>{{clases.hora }}</td>
+<<<<<<< HEAD
+=======
+                          <td>{{clases.maestro_t }}</td>
+                          <td>{{clases.url}}</td>
+
+                           <td>
+                               <button (click)="editarTarjeta(clases.id)" class="far fa-edit text-info"></button>
+                               <button (click)="eliminarTarjeta(clases.id)" class="far fa-trash-alt text-danger"></button>
+                          </td>
+   
+>>>>>>> 2af19471739c1f23defa015dcaaa77d5bcc808c3
                       </ng-container>
               </table>
           </div>
