@@ -5,7 +5,7 @@
     color: #142c5c ;
 }
 .boton{
-    background-color: #142c5c;
+    background-color: #ffc107;
     display: inline-block;
   font-weight: 400;
   color: white;
@@ -16,8 +16,13 @@
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+td{
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:medium;
+}
 .boton:disabled {
-    background-color: #bb5454;
+    background-color: #ffc107;
     opacity: 40%;
   font-weight: 400;
   color: white;
@@ -30,7 +35,7 @@
   }
 
 .red-icon {
-    color: #dc3545;
+    color: #ffc107;
 }
 
 .spinner-border {
@@ -41,11 +46,22 @@
     color: black;
 }
 .table{
-    background-color: #142c5c ;
+    background-color: #ffc107;
+    margin-bottom: auto;
+    border-bottom: 50%;
 }
 h3{
     color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 input{
-    color: #dc3545;
+    color: #ffc107;
+}
+.gradient-1 {
+    --background: linear-gradient(180deg,  #ffffff  0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, #ffc107,  rgb(255, 255, 255) );
+}
+.gradient-2 {
+    --background: linear-gradient(180deg,  #ffc107 , #ffffff );
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, #ffc107 500%);
 }

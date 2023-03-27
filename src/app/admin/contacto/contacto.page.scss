@@ -98,12 +98,12 @@ form {
 }
 
 .gradient-1 {
-    --background: linear-gradient(180deg,  #bcd33c  0%, rgb(255, 255, 255) 100%);
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #bcd33c);
+    --background: linear-gradient(180deg,  #ffffff  0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #17a2b8);
 }
 .gradient-2 {
-    --background: linear-gradient(180deg,  #9cb434 , #9cb434 );
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #142c5c 500%);
+    --background: linear-gradient(180deg,  #17a2b8 , #ffffff );
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, #17a2b8 500%);
 }
 
 .green-button {

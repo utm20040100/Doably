@@ -23,8 +23,9 @@ export class CalificarAlumnoPage implements OnInit {
     this.form = this.fb.group({
       nombre_alumno: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
       semana: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(30)]],
-      writting: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
-      speaking: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+      listening: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
+      participation: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+      performance: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
       retroalimentacion: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
     })
    }
@@ -35,8 +36,9 @@ export class CalificarAlumnoPage implements OnInit {
       this.form.patchValue({
         nombre_alumno: data.nombre_alumno,
         semana: data.semana,
-        writting: data.writting,
-        speaking: data.speaking,
+        listening: data.listening,
+        participation: data.participation,
+        performance: data.performance,
         retroalimentacion: data.retroalimentacion,
       })
     })
@@ -49,8 +51,9 @@ export class CalificarAlumnoPage implements OnInit {
     const TARJETA: Calificacion = {
       nombre_alumno: this.form.value.nombre_alumno,
       semana: this.form.value.semana,
-      writting: this.form.value.writting,
-      speaking: this.form.value.speaking,
+      listening: this.form.value.listening,
+      participation: this.form.value.participation,
+      performance: this.form.value.performance,
       retroalimentacion: this.form.value.retroalimentacion,
   
     }

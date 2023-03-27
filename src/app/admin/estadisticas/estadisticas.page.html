@@ -1,62 +1,83 @@
 <ion-header>
   <ion-button routerLink="/admin" expand="block">Regresar</ion-button>
 </ion-header>
-<ion-content *ngIf="user$ | async as user">
+<ion-content>
     <ion-toolbar>
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
       <img src="assets/img/MANZANA DOABLY.png" class="img-circle elevation-2" alt="User Image">
     </div>
-    <div class="info">
+    <div class="info"  *ngIf="user$ | async as user">
       <a href="/perfil" class="d-block"><strong>{{user.displayName}}</strong></a>
     </div>
   </div>
 </ion-toolbar>
-<body class="sign-container gradient-1">
+<body class="sign-container gradient-1" *ngIf="user$ | async as user" >
   <div class="board">
-          <h3>Tus avances</h3>
       <div class="sub_board" *ngFor="let calificaciones of listTarjetas">
-          <div class="sep_board"></div>
-          <div class="cont_board">
+            <div  *ngIf="user.displayName === calificaciones.nombre_alumno">
+              <div class="retro">Tus avances</div>
+                <div class="retro2">Retroalimentacion : {{calificaciones.retroalimentacion}}</div>
+                <div class="retro3">Semana : {{calificaciones.semana}}</div>
+            </div>
+            <br>
+            <br>
+          <div class="cont_board"  *ngIf="user.displayName === calificaciones.nombre_alumno">
               <div class="graf_board">
                   <div class="barra">
-                      <div class="sub_barra b1">
-                          <div class="tag_g">{{calificaciones.writting}}</div>
-                          <div class="tag_leyenda">Writting</div>
-                      </div>
-                  </div>
+                    <div class="sub_barra" *ngIf="calificaciones.listening == 10" style="height: 100%;">
+                          <div class="tag_g" *ngIf="calificaciones.listening == 10"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Listening (Excelent)</div></div>
+                        </div>
+                        <div class="sub_barra" *ngIf="calificaciones.listening == 9" style="height: 90%;">
+                          <div class="tag_g" *ngIf="calificaciones.listening == 9"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Listening (Very good)</div></div>
+                        </div>
+                        <div class="sub_barra" *ngIf="calificaciones.listening == 8" style="height: 80%;">
+                          <div class="tag_g" *ngIf="calificaciones.listening == 8"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Listening (Good)</div></div>
+                        </div>
+                        <div class="sub_barra" *ngIf="calificaciones.listening == 7" style="height: 70%;">
+                          <div class="tag_g" *ngIf="calificaciones.listening == 7"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Listening (Reinforce)</div></div>
+                         </div>
+                         <div class="sub_barra" *ngIf="calificaciones.listening == 6" style="height: 60%;">
+                          <div class="tag_g" *ngIf="calificaciones.listening == 6"><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Listening </div></div>
+                    </div>
+                        </div>
                   <div class="barra">
-                      <div class="sub_barra b2">
-                          <div class="tag_g">{{calificaciones.speaking}}</div>
-                          <div class="tag_leyenda">Speaking</div>
-                      </div>
-                  </div>
+                    <div class="sub_barra2" *ngIf="calificaciones.participation== 10" style="height: 100%;">
+                          <div class="tag_g" *ngIf="calificaciones.participation == 10"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Participation (Excelent)</div></div>
+                    </div>
+                    <div class="sub_barra2" *ngIf="calificaciones.participation== 9" style="height: 90%;">
+                          <div class="tag_g" *ngIf="calificaciones.participation == 9"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Participation(Very good)</div></div>
+                    </div>
+                    <div class="sub_barra2" *ngIf="calificaciones.participation== 8" style="height: 80%;">
+                          <div class="tag_g" *ngIf="calificaciones.participation == 8"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Participation (Good)</div></div>
+                    </div>
+                    <div class="sub_barra2" *ngIf="calificaciones.participation== 7" style="height: 70%;">
+                          <div class="tag_g" *ngIf="calificaciones.participation == 7"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Participation (Reinforce)</div></div>
+                    </div>
+                    <div class="sub_barra2" *ngIf="calificaciones.participation== 6" style="height: 60%;">
+                          <div class="tag_g" *ngIf="calificaciones.participation == 6"><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Participation</div></div>
+                    </div>
+                        </div>
                   <div class="barra">
-                      <div class="sub_barra b3">
-                          <div class="tag_g"></div>
-                          <div class="tag_leyenda">Espacio</div>
-                      </div>
-                  </div>
-                  <div class="barra">
-                      <div class="sub_barra b4">
-                          <div class="tag_g"></div>
-                          <div class="tag_leyenda">Espacio</div>
-                      </div>
-                  </div>
-                 
+                    <div class="sub_barra3" *ngIf="calificaciones.performance== 10" style="height: 100%;">
+                        <div class="tag_g" *ngIf="calificaciones.performance == 10"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance (Excelent)</div></div>
+                    </div>
+                    <div class="sub_barra3" *ngIf="calificaciones.performance== 9" style="height: 90%;">
+                        <div class="tag_g" *ngIf="calificaciones.performance == 9"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance (Very good)</div></div>
+                    </div>
+                    <div class="sub_barra3" *ngIf="calificaciones.performance== 8" style="height: 80%;">
+                        <div class="tag_g" *ngIf="calificaciones.performance == 8"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance (Good)</div></div>
+                    </div>
+                    <div class="sub_barra3" *ngIf="calificaciones.performance== 7" style="height: 70%;">
+                        <div class="tag_g" *ngIf="calificaciones.performance == 7"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance (Reinforce)</div></div>
+                    </div>
+                    <div class="sub_barra3" *ngIf="calificaciones.performance== 6" style="height: 60%;">
+                        <div class="tag_g" *ngIf="calificaciones.performance == 6"><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance</div></div>
+                    </div>
+                </div>
               </div>
               <div class="tag_board">
                   <div class="sub_tag_board">
-                      <div>100</div>
-                      <div>90</div>
-                      <div>80</div>
-                      <div>70</div>
-                      <div>60</div>
-                      <div>50</div>
-                      <div>40</div>
-                      <div>30</div>
-                      <div>20</div>
-                      <div>10</div>
                   </div>
               </div>
          </div> 

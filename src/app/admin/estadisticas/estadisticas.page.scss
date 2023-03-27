@@ -1,14 +1,57 @@
 body{
     background-color: #ededed;
   }
+h3{
+    text-align: center;
+    font-size: 20px;
+    color: #142c5c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3:hover{
+    color: #D4AF37;
+}
+.retro{
+    text-align: center;
+    font-size: 22px;
+    color: #142c5c;
+    margin-bottom: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+  }
+  .retro2{
+    text-align: center;
+    font-size: 20px;
+    color: #142c5c;
+    margin-bottom: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bolder;
+  }
+  .retro3{
+    text-align: center;
+    font-size: 20px;
+    color: #142c5c;
+    margin-bottom: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .retro:hover{
+    color: #D4AF37;
+  }
+  .retro2:hover{
+    color: #D4AF37;
+    font-size: 21px;
+  }
+  .retro3:hover{
+    color: #D4AF37;
+  }
   .board{
       margin: auto;
-      width: 55%;
-      height: 450px;
+      width: 90%;
+      height: 1050px;
       background-color: #ffffff;
       padding: 10px;
       box-sizing: border-box;
       overflow: hidden;
+
   }
   .titulo_grafica{
       width: 100%;
@@ -22,12 +65,13 @@ body{
   }
   .sub_board{
       width: 100%;
-      height: 90%;
+      height: 100%;
       padding: 10px;
       margin-top: 0px;
       background-color:#ffffff;
       overflow: hidden;
       box-sizing: border-box;
+      border: #D4AF37 4px solid;
   }
   .sep_board{
       width: 100%;
@@ -35,16 +79,16 @@ body{
   }
   .cont_board{
       width: 100%;
-      height: 80%;
+      height: 60%;
   }
   .graf_board{
-      width: 85%;
+      width: 100%;
       height: 100%;
       float: right;
       margin-top: 0px;
       background-color: #142c5c;
-      border-left: 2px solid #142c5c;
-      border-bottom: 2px solid #142c5c;
+      border-left: 3px solid #142c5c;
+      border-bottom: 3px solid #142c5c;
       box-sizing: border-box;
       display: flex;
       background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, 
@@ -97,30 +141,74 @@ body{
   }
   .sub_barra{
       width: 100%;
-      height: 80%;
+      text-align: center;
       background: #142c5c ;
-      background: -moz-linear-gradient(top,  #9cb434  0%,  #142c5c 100%);
-      background: -webkit-linear-gradient(top, #9cb434  0%,  #142c5c 100%);
-      background: linear-gradient(to bottom, #9cb434  0%,  #142c5c 100%);
+      background: -moz-linear-gradient(top,  	#D4AF37  0%,  #142c5c 100%);
+      background: -webkit-linear-gradient(top, 	#D4AF37  0%,  #142c5c 100%);
+      background: linear-gradient(to bottom, 	#D4AF37  0%,  #142c5c 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00799b', endColorstr='#64d1be',GradientType=0 );
       
       -webkit-border-radius: 3px 3px 0 0;
       border-radius: 3px 3px 0 0;
   }
+  .sub_barra2{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #142c5c ;
+    background: -moz-linear-gradient(top,  	#D4AF37  0%,  #142c5c 100%);
+    background: -webkit-linear-gradient(top, 	#D4AF37  0%,  #142c5c 100%);
+    background: linear-gradient(to bottom, 	#D4AF37  0%,  #142c5c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00799b', endColorstr='#64d1be',GradientType=0 );
+    
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+.sub_barra3{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #142c5c ;
+    background: -moz-linear-gradient(top,  	#D4AF37  0%,  #142c5c 100%);
+    background: -webkit-linear-gradient(top, 	#D4AF37  0%,  #142c5c 100%);
+    background: linear-gradient(to bottom, 	#D4AF37  0%,  #142c5c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00799b', endColorstr='#64d1be',GradientType=0 );
+    
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
   .tag_g{
       position: relative;
       width: 100%;
       height: 100%;
       margin-bottom: 30px;
       text-align: center;
-      margin-top: -20px;
-      z-index: 2;
+      margin-top: -30px;
+      z-index: 3;
+      color: 	#D4AF37;
+      font-size: 20px;
+      
   }
+  .tag_g:hover{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: -30px;
+    z-index: 3;
+    color: 	#cc9c00;
+    font-size: 25px;
+}
   .tag_leyenda{
-      width: 100%;
-      text-align: center;
-      margin-top: 5px;
-  }
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.tag_leyenda:hover{
+    font-size: 21PX;
+}
   .tag_board{
       height: 100%;
       width: 15%;
@@ -144,11 +232,10 @@ body{
   h3{
     text-align: center;
   }
-  .b1{ height: 30% }
-  .b2{ height: 45%}
-  .b3{ height: 55%}
-  .b4{ height: 75%}
-  .b5{ height: 85%}
+  .icono:hover{
+    background-color: #142c5c;
+  }
+ 
   footer{
       position: absolute;
       bottom: 0px;

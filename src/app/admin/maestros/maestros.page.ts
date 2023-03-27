@@ -79,6 +79,7 @@ export class MaestrosPage implements OnInit {
     })
   }
 
+
   agregarTarjeta() {
     const TARJETA: Clases = {
       nombre_alumno: this.form.value.nombre_alumno,

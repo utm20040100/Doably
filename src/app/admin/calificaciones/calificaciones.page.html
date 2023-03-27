@@ -8,16 +8,18 @@
             <tr>
                 <td>Nombre</td>
                 <td>Semana</td>
-                <td>Writting</td>
-                <td>Speaking</td>
+                <td>Listening</td>
+                <td>Class participation</td>
+                <td>Personal performance</td>
                 <td>Retroalimentacion</td>
             </tr>
             <ng-container *ngFor="let calificaciones of listTarjetas">
               <tr *ngIf="user.displayName === calificaciones.nombre_alumno">
                 <th scope="row">{{calificaciones.nombre_alumno}}</th>
                 <td>{{calificaciones.semana}}</td>
-                <td>{{calificaciones.writting}}</td>
-                <td>{{calificaciones.speaking}}</td>
+                <td>{{calificaciones.listening}}</td>
+                <td>{{calificaciones.participation}}</td>
+                <td>{{calificaciones.performance}}</td>
                 <td>{{calificaciones.retroalimentacion}}</td>
               
             </ng-container>

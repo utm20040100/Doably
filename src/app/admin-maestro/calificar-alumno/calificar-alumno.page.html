@@ -51,11 +51,11 @@
                     </span>
                 </div>
                 </div>
-                <h3>Writting</h3>
+                <h3>Listening</h3>
                 <div class="row">
                 <div class="col-lg-7">
                   <span>
-                      <select type="text" formControlName="writting" class="form-control" maxlength="16"
+                      <select type="text" formControlName="listening" class="form-control" maxlength="16"
                       placeholder="Fecha">
                           <option>5</option>
                           <option>6</option>
@@ -64,16 +64,16 @@
                           <option>9</option>
                           <option>10</option>
                         </select>
-                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('writting')?.valid"
-                          [class.red-icon]="this.form.get('writting')?.invalid && this.form.get('writting')?.touched"></i>
+                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('listening')?.valid"
+                          [class.red-icon]="this.form.get('listening')?.invalid && this.form.get('listening')?.touched"></i>
                   </span>
               </div>
                 </div>
-                <h3>Speaking</h3>
+                <h3>Class participation</h3>
                 <div class="row">
                 <div class="col-lg-7">
                   <span>
-                      <select type="text" formControlName="speaking" class="form-control" maxlength="16"
+                      <select type="text" formControlName="participation" class="form-control" maxlength="16"
                       placeholder="Speaking">
                           <option>5</option>
                           <option>6</option>
@@ -82,9 +82,27 @@
                           <option>9</option>
                           <option>10</option>
                         </select>
-                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('speaking')?.valid"
-                          [class.red-icon]="this.form.get('speaking')?.invalid && this.form.get('speaking')?.touched"></i>
+                      <i class="fas fa-credit-card" [class.green-icon]="this.form.get('participation')?.valid"
+                          [class.red-icon]="this.form.get('participation')?.invalid && this.form.get('participation')?.touched"></i>
                   </span>
+              </div>
+              <h3>Personal performance</h3>
+              <div class="row">
+              <div class="col-lg-7">
+                <span>
+                    <select type="text" formControlName="performance" class="form-control" maxlength="16"
+                    placeholder="Speaking">
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                      </select>
+                    <i class="fas fa-credit-card" [class.green-icon]="this.form.get('performance')?.valid"
+                        [class.red-icon]="this.form.get('performance')?.invalid && this.form.get('performance')?.touched"></i>
+                </span>
+            </div>
               </div>
               <br>
                 </div>

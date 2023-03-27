@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-button routerLink="/admin" expand="block">Regresar</ion-button>
+  <ion-button  routerLink="/admin" expand="block">Regresar</ion-button>
 </ion-header>
 <ion-content *ngIf="user$ | async as user">
   <ion-header>
@@ -14,7 +14,7 @@
    </div>
     </ion-toolbar>
   </ion-header>
-  <div class="card bg-gradient-success">
+  <div class="gradient-1">
     <div class="card-header border-0">
       
       <div class="card"  >
@@ -24,7 +24,7 @@
                 <div class="col-lg-7">
                     <span>
                     <h3>Nombre</h3>
-                        <select type="text" formControlName="nombre_alumno" class="form-control" value="{{user.displayName}}">
+                        <select  type="text" formControlName="nombre_alumno" class="form-control" value="{{user.displayName}}">
                           <option>{{user.displayName}}</option>
                           </select>
                         <i class="fas fa-credit-card" [class.green-icon]="this.form.get('nombre_alumno')?.valid"
@@ -76,9 +76,9 @@
                   </span>
                   <input type="time" formControlName="hora" class="form-control" placeholder="Hora">
                 </div>
-                <div class="d-grid gap-2">
-                    <button [disabled]="form.invalid" class="boton" type="submit" >
-                        <i class="fas fa-database"></i> &nbsp;Aceptar
+                <div class="d-grid gap-2" >
+                    <button [disabled]="form.invalid" class="boton" type="submit"  >
+                        <i class="fas fa-database" ></i> &nbsp;Aceptar
                     </button>
                 </div>
                   </div>
@@ -88,13 +88,14 @@
         </div>
         <div >
           <div class="card-body">
-              <h3 class="titulo">Tus clases esta semana</h3>
-              <table class="table">
+              <strong><h3 class="titulo">Tus clases esta semana</h3><style>.titulo{text-align: center;}</style></strong>
+              <table class="table" >
                     <tr>
                         <td>Nombre</td>
                         <td>Nivel de ingles</td>
                         <td>Fecha</td>
                         <td>Hora</td>
+                        
                     </tr>
                       <ng-container *ngFor="let clases of listTarjetas">
                         <tr *ngIf="user.displayName === clases.nombre_alumno">
