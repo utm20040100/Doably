@@ -1,10 +1,15 @@
 import { AuthService } from '../services/auth.service';
-import { User } from '../models/user';
+import { Maestro } from '../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clase} from 'src/app/services/tarjeta.service';
 import { Clases } from '../models/user';
+import { CanActivate } from "@angular/router"
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+
+
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +22,7 @@ export class AdminMaestroPage implements OnInit {
     loading = false;
     titulo = 'Agregar Tarjeta';
     id: string | undefined;
-  user$: Observable<User> = this.authSvc.afAuth.user;
+  master$: Observable<Maestro> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
               private _tarjetaService: Clase) {
@@ -41,18 +46,6 @@ export class AdminMaestroPage implements OnInit {
       this.obtenerMaestros();
   }
   
-  guardaraTarjeta() {
-  
-    if(this.id === undefined) {
-      // Creamos una nueva tarjeta
-      this.agregarTarjeta();
-
-    } else {
-      // Editamos una nueva tarjeta
-      this.editarTarjeta(this.id);
-    }
-    
-  }
 
   editarTarjeta(id: string) {
     const TARJETA: any = {
@@ -71,27 +64,7 @@ export class AdminMaestroPage implements OnInit {
     })
   }
 
-  agregarTarjeta() {
-    const TARJETA: Clases = {
-      nombre_alumno: this.form.value.nombre_alumno,
-      nivelIngles: this.form.value.nivelIngles,
-      fecha: this.form.value.fecha,
-      hora: this.form.value.hora,
-      fechaCreacion: new Date(),
-      fechaActualizacion: new Date(),
-    }
-
-    this.loading = true;
-    this._tarjetaService.agregarTarjeta(TARJETA).then(() => {
-      this.loading = false;
-      console.log('tarjeta registrada');
-      this.form.reset();
-    }, error => {
-      this.loading = false;
-      console.log(error);
-    })
-  }
-  
+ 
    obtenerMaestros() {
       this._tarjetaService.obtenerTarjetas().subscribe(doc => {
         this.listTarjetas = [];

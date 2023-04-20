@@ -19,10 +19,10 @@ export class Clase {
     return this.firestore.collection('calificaciones').add(tarjeta);
   }
   obtenerTarjetas(): Observable<any> {
-    return this.firestore.collection('clases', ref => ref.orderBy('nombre_alumno')).snapshotChanges();
+    return this.firestore.collection('clases',  ref => ref.orderBy('nombre_alumno').limit(3)).snapshotChanges();
   }
   obtenerMaestros(): Observable<any> {
-    return this.firestore.collection('maestros', ref => ref.orderBy('display_Name')).snapshotChanges();
+    return this.firestore.collection('maestros', ref => ref.orderBy('email')).snapshotChanges();
   }
   eliminarTarjeta(id: string): Promise<any> {
     return this.firestore.collection('clases').doc(id).delete();
@@ -41,6 +41,14 @@ export class Clase {
 
   getTarjetaEdit(): Observable<Clases> {
     return this.tarjeta$.asObservable();
+  }
+}
+export class Maestro {
+  private tarjeta$ = new Subject<any>();
+
+  constructor(private firestore: AngularFirestore) { }
+  obtenerMaestros(): Observable<any> {
+    return this.firestore.collection('maestros', ref => ref.orderBy('email')).snapshotChanges();
   }
 }
 

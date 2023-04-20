@@ -4,6 +4,13 @@ export interface User {
   displayName: string;
   emailVerified: boolean;
 }
+export class Maestro {
+  uid: string;
+  email: string;
+  displayName: string;
+  emailVerified: boolean;
+ 
+}
 export class Calificacion{
   id?: string;
   listening: string;
@@ -28,17 +35,17 @@ export class Clases {
   fechaCreacion: Date;
   fechaActualizacion: Date;
   hora: string;
-  nombre_alumno: string;
- 
+  nombre_alumno: boolean;
+ maestro: boolean;
 
 
-  constructor(nombre_alumno: string, nivelIngles: string, fecha: string, hora: string ,url: string,maestro_t: string) {
+  constructor(nombre_alumno: boolean, maestro: boolean, nivelIngles: string, fecha: string, hora: string ,url: string) {
       this.nivelIngles = nivelIngles;
       this.fecha = fecha;
       this.hora = hora;
       this.nombre_alumno = nombre_alumno;
       this.fechaCreacion = new Date();
       this.fechaActualizacion = new Date();
-
+      this.maestro = maestro;
   }
 }

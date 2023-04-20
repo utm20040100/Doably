@@ -28,7 +28,6 @@ export class Clase {
   obtenerAlumnos(): Observable<any> {
     return this.firestore.collection('users', ref => ref.orderBy('displayName')).snapshotChanges();
   }
-
   editarTarjeta(id: string, tarjeta: any): Promise<any> {
     return this.firestore.collection('clases').doc(id).update(tarjeta);
   }

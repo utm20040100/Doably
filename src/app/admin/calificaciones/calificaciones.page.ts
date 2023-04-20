@@ -47,28 +47,7 @@ export class CalificacionesPage implements OnInit {
 
 
 
-  agregarCalificacion() {
-    const TARJETA: Calificacion = {
-      nombre_alumno: this.form.value.nombre_alumno,
-      semana: this.form.value.semana,
-      listening: this.form.value.listening,
-      participation: this.form.value.participation,
-      performance: this.form.value.performance,
-      retroalimentacion: this.form.value.retroalimentacion,
-  
-    }
-
-    this.loading = true;
-    this._tarjetaService.agregarCalificacion(TARJETA).then(() => {
-      this.loading = false;
-      console.log('tarjeta registrada');
-      this.form.reset();
-    }, error => {
-      this.loading = false;
-      console.log(error);
-    })
-  }
-  
+ 
    obtenerCalificaciones() {
       this._tarjetaService.obtenerCalificaciones().subscribe(doc => {
         this.listTarjetas = [];
@@ -79,13 +58,6 @@ export class CalificacionesPage implements OnInit {
           });
         });
         console.log(this.listTarjetas);
-      })
-    }
-  
-    eliminarTarjeta(id: any) {
-      this._tarjetaService.eliminarTarjeta(id).then(() => {
-      }, error => {
-        console.log(error);
       })
     }
 

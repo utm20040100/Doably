@@ -31,10 +31,10 @@
                                 </div>
                             </div>
                         <div>
-                            <div style="text-align: center;">
+                            <div style="text-align: center;" *ngFor="let clases of listTarjetas">
                                 <div class="form-group">
-                                    <label>Nivel de ingles</label>
-                                    <input style="text-align: center;" type="text" class="form-control" placeholder="Nivel de ingles" value="{{user.nivel_ingles}}" disabled>
+                                    <label *ngIf="user.displayName === clases.nombre_alumno">Nivel de ingles</label>
+                                    <input *ngIf="user.displayName === clases.nombre_alumno" style="text-align: center;" type="text" class="form-control" placeholder="Nivel de ingles" value="{{clases.nivelIngles}}" disabled>
                                 </div>
                             </div>
                         </div>

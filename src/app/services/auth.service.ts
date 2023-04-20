@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { Maestro } from '../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -11,6 +12,7 @@ import { Clases, Calificacion } from '../models/user';
 })
 export class AuthService {
   public user$: Observable<User>;
+  public master$: Observable<Maestro>;
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -18,6 +20,14 @@ export class AuthService {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
         return of(null);
+      })
+    );
+    this.master$ = this.afAuth.authState.pipe(
+      switchMap((master) => {
+        if (master){
+          return this.afs.doc<Maestro>(`maestros${master.uid}`).valueChanges();}
+
+          return of(null);
       })
     );
   }
@@ -40,7 +50,7 @@ export class AuthService {
   }
 
 
-  async register(displayName:string, email: string, password: string): Promise<User> {
+  async register(email: string, password: string,): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
       await this.sendVerifcationEmail();
@@ -59,14 +69,14 @@ export class AuthService {
       console.log('Error->', error);
     }
   }
-  private updateMaestroData(user:User) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`maestros/${user.uid}`);
+  private updateMaestroData(master:Maestro) {
+    const userRef: AngularFirestoreDocument<Maestro> = this.afs.doc(`maestros/${master.uid}`);
 
-    const data: User = {
-      uid: user.uid,
-      email: user.email,
-      emailVerified: user.emailVerified,
-      displayName: user.displayName,
+    const data: Maestro = {
+      uid: master.uid,
+      email: master.email,
+      emailVerified: master.emailVerified,
+      displayName: master.displayName,
     };
 
     return userRef.set(data, { merge: true });

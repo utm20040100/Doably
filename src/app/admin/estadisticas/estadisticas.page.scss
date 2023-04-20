@@ -10,6 +10,15 @@ h3{
 h3:hover{
     color: #D4AF37;
 }
+.table{
+  background-color: #142c5c ;
+  color: #ffff;
+  border-radius: 2px;
+  margin-bottom: auto;
+  border-bottom: 50%;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .retro{
     text-align: center;
     font-size: 22px;
@@ -45,13 +54,9 @@ h3:hover{
   }
   .board{
       margin: auto;
-      width: 90%;
-      height: 1050px;
+      width: 95%;
       background-color: #ffffff;
-      padding: 10px;
-      box-sizing: border-box;
-      overflow: hidden;
-
+height: 100%;
   }
   .titulo_grafica{
       width: 100%;

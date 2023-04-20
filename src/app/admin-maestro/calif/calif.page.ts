@@ -21,76 +21,9 @@ export class CalifPage implements OnInit {
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
               private _tarjetaService: Clase) {
-    this.form = this.fb.group({
-      nombre_alumno: ['{{user.displayName}}', []],
-      nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-      fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
-    })
    }
-   ngOnInit(): void {
-    this._tarjetaService.getTarjetaEdit().subscribe(data => {
-      this.id = data.id;
-      this.titulo = 'Editar Tarjeta';
-      this.form.patchValue({
-        nivelIngles: data.nivelIngles,
-        fecha: data.fecha,
-        hora: data.hora,
-      })
-    })
-      this.obtenerTarjetas();
-  }
+   ngOnInit(): void { this.obtenerTarjetas();}
   
-  guardaraTarjeta() {
-  
-    if(this.id === undefined) {
-      // Creamos una nueva tarjeta
-      this.agregarTarjeta();
-
-    } else {
-      // Editamos una nueva tarjeta
-      this.editarTarjeta(this.id);
-    }
-    
-  }
-
-  editarTarjeta(id: string) {
-    const TARJETA: any = {
-      nivelIngles: this.form.value.nivelIngles,
-      fecha: this.form.value.fecha,
-      fechaActualizacion: new Date(),
-    }
-    this.loading = true;
-    this._tarjetaService.editarTarjeta(id, TARJETA).then(() =>{
-      this.loading = false;
-      this.titulo = 'Agregar Tarjeta';
-      this.form.reset();
-      this.id = undefined
-    }, error => {
-      console.log(error);
-    })
-  }
-
-  agregarTarjeta() {
-    const TARJETA: Clases = {
-      nombre_alumno: this.form.value.nombre_alumno,
-      nivelIngles: this.form.value.nivelIngles,
-      fecha: this.form.value.fecha,
-      hora: this.form.value.hora,
-      fechaCreacion: new Date(),
-      fechaActualizacion: new Date(),
-    }
-
-    this.loading = true;
-    this._tarjetaService.agregarTarjeta(TARJETA).then(() => {
-      this.loading = false;
-      console.log('tarjeta registrada');
-      this.form.reset();
-    }, error => {
-      this.loading = false;
-      console.log(error);
-    })
-  }
   
    obtenerTarjetas() {
       this._tarjetaService.obtenerTarjetas().subscribe(doc => {
@@ -105,13 +38,6 @@ export class CalifPage implements OnInit {
       })
     }
   
-    eliminarTarjeta(id: any) {
-      this._tarjetaService.eliminarTarjeta(id).then(() => {
-      }, error => {
-        console.log(error);
-      })
-    }
-
   }
   
   

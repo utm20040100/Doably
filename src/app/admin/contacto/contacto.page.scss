@@ -35,6 +35,7 @@ form {
     display: flex;
     flex-direction: column;
     height: 100%;
+    
 
     .header {
         flex: 1;
@@ -99,13 +100,12 @@ form {
 
 .gradient-1 {
     --background: linear-gradient(180deg,  #ffffff  0%, rgb(255, 255, 255) 100%);
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,  #17a2b8);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,#f5dfc6);
 }
 .gradient-2 {
-    --background: linear-gradient(180deg,  #17a2b8 , #ffffff );
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, #17a2b8 500%);
+    --background: linear-gradient(180deg,  #f5dfc6 , #ffffff );
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,#f5dfc6 500%);
 }
-
 .green-button {
     --background:     #142c5c  ;
     color: #FFF;

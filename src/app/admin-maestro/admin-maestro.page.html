@@ -1,17 +1,17 @@
-<ion-content *ngIf="user$ | async as user">
+<ion-content *ngIf="master$ | async as master">
   <ion-toolbar>
 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
   <div class="image">
     <img src="assets/img/MANZANA DOABLY.png" class="img-circle elevation-2" alt="User Image">
   </div>
   <div class="info">
-    <a href="/perfil-maestro" class="d-block"><strong>{{user.email}}</strong></a>
+    <a href="/perfil-maestro" class="d-block"><strong>{{master.displayName}}</strong></a>
   </div>
 </div>
 </ion-toolbar>
 <div class="sign-container gradient-1">
       <div >
-        <section class="content">
+        <section class="content" >
           <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
@@ -40,21 +40,7 @@
                   <a href="/clases" class="small-box-footer">Click aqui<i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
-              <!-- ./col -->
-              <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                  <div class="inner">
-                    <h2>Estadisticas</h2>
-    
-                    <p></p>
-                  </div>
-                  <div class="icon">
-                    <i><ion-icon name="stats-chart-outline"></ion-icon></i>
-                  </div>
-                  <a href="/estadisticas" class="small-box-footer">Click aqui<i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-              </div>
+            
             </div>
           </div>
         </section>

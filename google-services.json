@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:293207124084:android:0ead861dd467562a63c921",
         "android_client_info": {
-          "package_name": "capacitor.android.plugins"
+          "package_name": "io.ionic.starter"
         }
       },
       "oauth_client": [

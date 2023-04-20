@@ -14,6 +14,27 @@
 </ion-toolbar>
 <body class="sign-container gradient-1" *ngIf="user$ | async as user" >
   <div class="board">
+    <table class="table">
+      <tr>
+          <td>Nombre</td>
+          <td>Semana</td>
+          <td>Listening</td>
+          <td>Class participation</td>
+          <td>Personal performance</td>
+          <td>Retroalimentacion</td>
+      </tr>
+      <ng-container *ngFor="let calificaciones of listTarjetas">
+        <tr *ngIf="user.displayName === calificaciones.nombre_alumno">
+          <th scope="row">{{calificaciones.nombre_alumno}}</th>
+          <td>{{calificaciones.semana}}</td>
+          <td>{{calificaciones.listening}}</td>
+          <td>{{calificaciones.participation}}</td>
+          <td>{{calificaciones.performance}}</td>
+          <td>{{calificaciones.retroalimentacion}}</td>
+        
+      </ng-container>
+  </table>
+  <br>
       <div class="sub_board" *ngFor="let calificaciones of listTarjetas">
             <div  *ngIf="user.displayName === calificaciones.nombre_alumno">
               <div class="retro">Tus avances</div>
@@ -74,15 +95,15 @@
                     <div class="sub_barra3" *ngIf="calificaciones.performance== 6" style="height: 60%;">
                         <div class="tag_g" *ngIf="calificaciones.performance == 6"><ion-icon name="star"></ion-icon><div class="tag_leyenda"><br>Personal performance</div></div>
                     </div>
+                    <br>
                 </div>
+                <br>
               </div>
-              <div class="tag_board">
-                  <div class="sub_tag_board">
-                  </div>
-              </div>
+              <br>
          </div> 
-          <div class="sep_board"></div>
-     </div>    
+         <br>
+     </div>  
+     <br>  
   </div>
 </body>
 </ion-content>

@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clase} from 'src/app/services/tarjeta.service';
 import { Clases } from '../../models/user';
-
+import { Maestro } from '../../models/user';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './maestros.page.html',
@@ -13,6 +14,7 @@ import { Clases } from '../../models/user';
 })
 export class MaestrosPage implements OnInit {
   listTarjetas: Clases[] = [];
+  listTarjetas2: Maestro[] = [];
   form: FormGroup;
     loading = false;
     titulo = 'Agregar Tarjeta';
@@ -20,14 +22,24 @@ export class MaestrosPage implements OnInit {
   user$: Observable<User> = this.authSvc.afAuth.user;
   constructor(private authSvc: AuthService,
     private fb: FormBuilder,
-              private _tarjetaService: Clase) {
+              private _tarjetaService: Clase, private router: Router) {
+                
     this.form = this.fb.group({
       nombre_alumno: ['{{user.displayName}}', []],
+      maestro: ['{{maestro.displayName}}', []],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
     })
    }
+   async onResetPassword(email) {
+    try {
+      await this.authSvc.resetPassword(email.value);
+      this.router.navigate(['/login-maestro']);
+    } catch (error) {
+      console.log('Error->', error);
+    }
+  }
    ngOnInit(): void {
     this._tarjetaService.getTarjetaEdit().subscribe(data => {
       this.id = data.id;
@@ -39,6 +51,7 @@ export class MaestrosPage implements OnInit {
       })
     })
       this.obtenerTarjetas();
+      this.obtenerMaestros();
   }
   
   guardaraTarjeta() {
@@ -70,13 +83,25 @@ export class MaestrosPage implements OnInit {
       console.log(error);
     })
   }
-
+  obtenerMaestros() {
+    this._tarjetaService.obtenerMaestros().subscribe(doc => {
+      this.listTarjetas2 = [];
+      doc.forEach((element: any) => {
+        this.listTarjetas2.push({
+          display_Name: element.payload.doc.nombre_alumno,
+          ...element.payload.doc.data()
+        });
+      });
+      console.log(this.listTarjetas2);
+    })
+  }
   agregarTarjeta() {
     const TARJETA: Clases = {
       nombre_alumno: this.form.value.nombre_alumno,
       nivelIngles: this.form.value.nivelIngles,
       fecha: this.form.value.fecha,
       hora: this.form.value.hora,
+      maestro: this.form.value.maestro,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
     }
@@ -104,6 +129,7 @@ export class MaestrosPage implements OnInit {
         console.log(this.listTarjetas);
       })
     }
+  
     obtenerMestros() {
       this._tarjetaService.obtenerMaestros().subscribe(doc => {
         this.listTarjetas = [];

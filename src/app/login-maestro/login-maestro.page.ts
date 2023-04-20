@@ -13,9 +13,9 @@ export class LoginMaestroPage implements OnInit {
  
   async onLogin(email, password) {
     try {
-      const user = await this.authSvc.login(email.value, password.value);
-      if (user) {
-        const isVerified = this.authSvc.isEmailVerified(user);
+      const master = await this.authSvc.login(email.value, password.value);
+      if (master) {
+        const isVerified = this.authSvc.isEmailVerified(master);
         console.log('verified->',isVerified);
         this.redirectUser(isVerified);
       }

@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "Doabky",
+  "appName": "Doably",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

@@ -21,7 +21,7 @@ export class CalificarAlumnoPage implements OnInit {
     private fb: FormBuilder,
               private _tarjetaService: Calificaciones) {
     this.form = this.fb.group({
-      nombre_alumno: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      nombre_alumno: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
       semana: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(30)]],
       listening: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
       participation: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
