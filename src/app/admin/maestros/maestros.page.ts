@@ -24,8 +24,8 @@ export class MaestrosPage implements OnInit {
     private fb: FormBuilder,
               private _tarjetaService: Clase,  private router: Router) {
     this.form = this.fb.group({
-      maestro: ['{{maestros.email}}', []],
-      nombre_alumno: ['{{user.displayName}}', []],
+      maestro: ['{{maestros.email}}'],
+      nombre_alumno: ['{{user.displayName}}'],
       nivelIngles: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       fecha: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       hora: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
@@ -35,7 +35,8 @@ export class MaestrosPage implements OnInit {
       this.obtenerTarjetas();
       this.obtenerMaestros();
   } 
-  
+
+
   agregarTarjeta() {
     const TARJETA: Clases = {
       nombre_alumno: this.form.value.nombre_alumno,
@@ -44,7 +45,8 @@ export class MaestrosPage implements OnInit {
       hora: this.form.value.hora,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
-      maestro: this.form.value.maestro
+      maestro: this.form.value.maestro,
+      completed: false,
     }
 
     this.loading = true;

@@ -1,64 +1,39 @@
 <ion-content *ngIf="user$ | async as user">
-    <ion-toolbar>
+  <section class="contenedor-fondo-animado">
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-      <img src="assets/img/MANZANA DOABLY.png" class="img-circle elevation-2" alt="User Image">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="img-fondo" alt="User Image">
     </div>
     <div class="info">
-      <a href="/perfil" class="d-block"><strong>{{user.displayName}}</strong></a>
+      <a href="/perfil" class="nombre"><strong>{{user.displayName}}</strong></a>
     </div>
   </div>
-</ion-toolbar>
-  <div class="sign-container gradient-1">
-        <div class="menuc">
-          <section>
-            <div>
-              <div class="row">
-                <div class="col-lg-3 col-6">
-                  <div class="small-box bg-info"  background-color: #ccc;>
-                    <div class="inner">
-                    
-                      <h2>Contacto</h2>
-      
-                      <p></p>
-                    </div>
-                    <div class="icon">
-                      <i><ion-icon name="chatbubbles-outline"></ion-icon></i>
-                    </div>
-                    <a href="/contacto" class="small-box-footer">Click aqui<i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                  <div class="small-box bg-warning">
-                    <div class="inner">
-                      <h2>Clases</h2>
-                    </div>
-                    <div class="icon">
-                      <i><ion-icon name="book-outline"></ion-icon></i>
-                    </div>
-                    <a href="/maestros" class="small-box-footer">Click aqui<i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                  <div class="small-box bg-danger">
-                    <div class="inner">
-                      <h2>Calificaciones</h2>
-      
-                      <p></p>
-                    </div>
-                    <div class="icon">
-                      <i><ion-icon name="stats-chart-outline"></ion-icon></i>
-                    </div>
-                    <a href="/estadisticas" class="small-box-footer">Click aqui<i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <div class="header">
-            <div class="title ion-text-center">
-              <img src="assets/img/LOGO DOABLY2.png">
-            </div>
-          </div>
-        </div>
+  <div class="animacion">
+    <div class="seccion-contenido">
+      <div class="contenido">
+          <ul>
+              <li><a href="/estadisticas"><ion-icon name="school-outline"></ion-icon> See rating</a></li>
+              <li><a href="/maestros"><ion-icon name="book-outline"></ion-icon> Schedule class</a></li>
+              <li><a href="/contacto"><ion-icon name="phone-portrait-outline"></ion-icon> Contact us</a></li>
+          </ul>
+          <br>
+          <img src="https://www.doablyacademy.com/wp-content/uploads/2022/04/frente.webp">
       </div>
+  </div>
+      <!--  -->
+      <span class="uno"></span>
+      <span class="dos"></span>
+      <span class="tres"></span>
+      <span class="cuatro"></span>
+      <!--  -->
+      <span class="uno"></span>
+      <span class="dos"></span>
+      <span class="tres"></span>
+      <span class="cuatro"></span>
+      <!--  -->
+      <span class="uno"></span>
+      <span class="dos"></span>
+      <span class="tres"></span>
+      <span class="cuatro"></span>
+  </div>
+</section>

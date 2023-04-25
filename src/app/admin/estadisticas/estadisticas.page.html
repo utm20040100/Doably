@@ -37,9 +37,7 @@
   <br>
       <div class="sub_board" *ngFor="let calificaciones of listTarjetas">
             <div  *ngIf="user.displayName === calificaciones.nombre_alumno">
-              <div class="retro">Tus avances</div>
-                <div class="retro2">Retroalimentacion : {{calificaciones.retroalimentacion}}</div>
-                <div class="retro3">Semana : {{calificaciones.semana}}</div>
+                <div class="semana">Semana : {{calificaciones.semana}}</div>
             </div>
             <br>
             <br>

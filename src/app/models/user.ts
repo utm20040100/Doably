@@ -37,12 +37,14 @@ export class Clases {
   hora: string;
   nombre_alumno: boolean;
  maestro: boolean;
+ completed: boolean;
 
 
-  constructor(nombre_alumno: boolean, maestro: boolean, nivelIngles: string, fecha: string, hora: string ,url: string) {
+  constructor(nombre_alumno: boolean, completed: boolean, maestro: boolean, nivelIngles: string, fecha: string, hora: string ,url: string) {
       this.nivelIngles = nivelIngles;
       this.fecha = fecha;
       this.hora = hora;
+      this.completed = completed;
       this.nombre_alumno = nombre_alumno;
       this.fechaCreacion = new Date();
       this.fechaActualizacion = new Date();

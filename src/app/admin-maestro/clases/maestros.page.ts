@@ -54,18 +54,6 @@ export class MaestrosPage implements OnInit {
       this.obtenerMaestros();
   }
   
-  guardaraTarjeta() {
-  
-    if(this.id === undefined) {
-      // Creamos una nueva tarjeta
-      this.agregarTarjeta();
-
-    } else {
-      // Editamos una nueva tarjeta
-      this.editarTarjeta(this.id);
-    }
-    
-  }
 
   editarTarjeta(id: string) {
     const TARJETA: any = {
@@ -95,28 +83,7 @@ export class MaestrosPage implements OnInit {
       console.log(this.listTarjetas2);
     })
   }
-  agregarTarjeta() {
-    const TARJETA: Clases = {
-      nombre_alumno: this.form.value.nombre_alumno,
-      nivelIngles: this.form.value.nivelIngles,
-      fecha: this.form.value.fecha,
-      hora: this.form.value.hora,
-      maestro: this.form.value.maestro,
-      fechaCreacion: new Date(),
-      fechaActualizacion: new Date(),
-    }
 
-    this.loading = true;
-    this._tarjetaService.agregarTarjeta(TARJETA).then(() => {
-      this.loading = false;
-      console.log('tarjeta registrada');
-      this.form.reset();
-    }, error => {
-      this.loading = false;
-      console.log(error);
-    })
-  }
-  
    obtenerTarjetas() {
       this._tarjetaService.obtenerTarjetas().subscribe(doc => {
         this.listTarjetas = [];
